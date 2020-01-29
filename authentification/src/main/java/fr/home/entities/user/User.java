@@ -1,4 +1,4 @@
-package fr.home.entities;
+package fr.home.entities.user;
 
 
 import lombok.Getter;
@@ -15,7 +15,9 @@ import javax.persistence.Id;
 public class User {
 
     @Id
-    private int id;
+    private Integer id;
+    private String login;
+    private String password;
     private String name;
     private String address;
     private Boolean active;
