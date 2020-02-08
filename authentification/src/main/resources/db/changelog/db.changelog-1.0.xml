@@ -11,11 +11,23 @@
             <column name="id" type="int">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(50)">
+            <column name="login" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="password" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="varchar(50)"/>
+            <column name="name" type="varchar(50)"/>
             <column name="active" type="boolean" defaultValueBoolean="true"/>
         </createTable>
+    </changeSet>
+    <changeSet id="2" author="aak" >
+        <insert tableName="user">
+            <column name="id" value="1"/>
+            <column name="login" value="yobs"/>
+            <column name="password" value="pass"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>

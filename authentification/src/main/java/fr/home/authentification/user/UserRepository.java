@@ -1,4 +1,4 @@
-package fr.home.entities.user;
+package fr.home.authentification.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

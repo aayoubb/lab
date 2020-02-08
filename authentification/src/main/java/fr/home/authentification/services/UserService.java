@@ -1,6 +1,6 @@
-package fr.home.services;
+package fr.home.authentification.services;
 
-import fr.home.entities.user.User;
+import fr.home.authentification.user.User;
 
 /**
  * User service.
@@ -13,5 +13,5 @@ public interface UserService {
      * @param password password
      * @return User
      */
-    public User getUser(String login, String password);
+     User getUser(String login, String password);
 }

@@ -1,4 +1,4 @@
-package fr.home.entities.user;
+package fr.home.authentification.user;
 
 
 import lombok.Getter;
