@@ -1,6 +1,6 @@
 package fr.home.authentification.services;
 
-import fr.home.authentification.user.User;
+import fr.home.authentification.entities.user.User;
 
 /**
  * User service.
