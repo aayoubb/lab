@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class LoginController {
 
@@ -18,8 +20,8 @@ public class LoginController {
     private UserService userService;
 
     @PostMapping("/login")
-    public @ResponseBody ResponseEntity<User> login(@RequestBody UserForm userForm ){
-        return new ResponseEntity<User>(userService.getUser(userForm.getLogin(), userForm.getPassword())  //
+    public @ResponseBody ResponseEntity<List<User>> login(@RequestBody UserForm userForm ){
+         return new ResponseEntity<List<User>>(userService.getUser(userForm.getLogin(), userForm.getPassword())  //
                 , HttpStatus.OK);
     }
 }

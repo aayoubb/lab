@@ -7,9 +7,21 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <changeSet id="1" author="aak">
+
+        <createTable tableName="user_detail">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="location" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
         <createTable tableName="user">
             <column name="id" type="int">
                 <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_detail_id" type="int">
+                    <constraints  foreignKeyName="fk_use_user_detail" references="user_detail(id)"/>
             </column>
             <column name="login" type="varchar(255)">
                 <constraints nullable="false"/>
@@ -21,11 +33,23 @@
             <column name="name" type="varchar(50)"/>
             <column name="active" type="boolean" defaultValueBoolean="true"/>
         </createTable>
+
     </changeSet>
     <changeSet id="2" author="aak" >
+      <!--  <insert tableName="user_detail">
+            <column name="id" value="1"/>
+            <column name="location" value="casa"/>
+        </insert> -->
         <insert tableName="user">
             <column name="id" value="1"/>
             <column name="login" value="yobs"/>
+            <column name="password" value="pass"/>
+           <!-- <column name="user_detail_id" value="1"/> -->
+            <column name="address" value="casa"/>
+        </insert>
+        <insert tableName="user">
+            <column name="id" value="2"/>
+            <column name="login" value="yy"/>
             <column name="password" value="pass"/>
         </insert>
     </changeSet>

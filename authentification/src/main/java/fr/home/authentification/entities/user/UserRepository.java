@@ -1,10 +1,13 @@
 package fr.home.authentification.entities.user;
 
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-
-     User findByLoginAndPassword(String login, String password);
+     @EntityGraph(attributePaths = {"userDetail"})
+     List<User> findAll();
 }
