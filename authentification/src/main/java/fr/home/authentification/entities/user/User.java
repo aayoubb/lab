@@ -17,7 +17,6 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @Entity
-
 public class User implements Serializable {
 
     @Id
@@ -27,9 +26,11 @@ public class User implements Serializable {
     private String name;
     private String address;
     private Boolean active;
-    @OneToOne()
+    @OneToOne(fetch = FetchType.LAZY, optional=false)
     @JoinColumns( {@JoinColumn(name = "userDetailId", referencedColumnName="id",  insertable=false, updatable=false),
             @JoinColumn(name = "address", referencedColumnName="location", insertable=false, updatable=false)} )
+    @Fetch(FetchMode.JOIN)
+    @LazyToOne(LazyToOneOption.NO_PROXY)
     private UserDetail userDetail;
 
 }
